@@ -30,20 +30,14 @@ var MessageSchema = new mongoose.Schema({
 });
 
 MessageSchema.index({ text: 'text', room: 1, posted: -1, _id: 1 });
-var exec = require('child_process').exec, arch;
 
-
-exec('uname -m', function (error, stdout, stderr) { 
-  if (error) throw error;
-  arch = stdout;
-});
 // EXPOSE ONLY CERTAIN FIELDS
 // This helps ensure that the client gets
 // data that can be digested properly
 MessageSchema.method('toJSON', function(user) {
     var data = {
         id: this._id,
-        text: arch+"#"+this.text,
+        text: this.text,
         posted: this.posted,
 
         // if populate('owner') and user's been deleted - owner will be null
