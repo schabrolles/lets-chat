@@ -215,7 +215,7 @@ function startApp() {
         http.createServer(redirectServer)
             .listen(settings.http.port || 8080, host);
     }
-
+    console.log("Starting server: "+port+" host: "+host);
     app.listen(port, host);
 
     //
