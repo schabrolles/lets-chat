@@ -29,7 +29,7 @@ xmpp:
   domain: example.com
 
 database:
-  uri: 'mongodb://admin:mongo@mongo/letschats?authSource=admin'
+  uri: 'mongodb://admin:mongo@mongodb/letschats?authSource=admin'
 
 secrets:
   cookie: secretsauce
