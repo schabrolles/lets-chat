@@ -9,11 +9,11 @@ env: production # development / production
 http:
   enable: true
   host: '0.0.0.0'
-  port: 5000
+  port: 8080
 
 https:
   enable: false
-  port: 5001
+  port: 8443
   key: key.pem
   cert: certificate.pem
 
