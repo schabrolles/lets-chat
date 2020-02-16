@@ -1,6 +1,7 @@
 {
   "name": "lets-chat",
-  "version": "0.4.8",
+  "version": "1.0.0",
+  "arch": "ppc64le",
   "description": "A chat app for small teams.",
   "license": "MIT",
   "main": "app.js",
@@ -16,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sdelements/lets-chat.git"
+    "url": "git://github.com/schabrolles/lets-chat.git"
   },
   "author": {
     "name": "Houssam Haidar",
