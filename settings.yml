@@ -29,7 +29,7 @@ xmpp:
   domain: example.com
 
 database:
-  uri: mongodb://mongouser:password@mongodb:27017/sampledb
+  uri: mongodb://localhost:27018/localdb
 
 secrets:
   cookie: secretsauce
