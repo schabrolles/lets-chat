@@ -173,8 +173,8 @@ var pipeline = [
 
     function openShift311(context) {
         if (process.env.OPENSHIFT_BUILD_NAME) {
-            context.result.http.host = process.env.OPENSHIFT_NODEJS_IP;
-            context.result.http.port = process.env.OPENSHIFT_NODEJS_PORT;
+            context.result.http.host = process.env.LETSCHAT_SERVICE_HOST;
+            context.result.http.port = process.env.LETSCHAT_SERVICE_PORT_8080_TCP;
 
             context.result.database.uri = "mongodb://"+process.env.username+":"+process.env.password+"@"+process.env.MONGODB_PORT_27017_TCP_ADDR+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env.database_name;
 
