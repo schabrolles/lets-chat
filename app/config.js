@@ -175,13 +175,21 @@ var pipeline = [
         if (process.env.OPENSHIFT_BUILD_NAME) {
             context.result.http.host = "0.0.0.0";
             context.result.http.port = 8080;
+
+            /*
             if(process.env.parameters){
               var json=JSON.parse(process.env.parameters);
               context.result.database.uri = "mongodb://"+json['MONGODB_USER']+":"+json['MONGODB_PASSWORD']+"@"+json['DATABASE_SERVICE_NAME']+"/"+json['MONGODB_DATABASE'];
             }else{
-              context.result.database.uri = "mongodb://"+process.env.username+":"+process.env.password+"@"+process.env.MONGODB_SERVICE_HOST+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env.database_name;
 
-            }
+            database-admin-password: RDJNTnZFMk5RUEdrUTh5VA==
+database-name: c2FtcGxlZGI=
+database-password: RVlhSE9ObTh0a3U2RTRudA==
+database-user: dXNlckFJWQ==
+              */
+              context.result.database.uri = "mongodb://"+process.env['database-user']+":"+process.env['database-password']+"@"+process.env.MONGODB_SERVICE_HOST+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env['database-name'];
+
+            //}
 
         }
     }
