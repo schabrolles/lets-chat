@@ -54,6 +54,8 @@ if (settings.env === 'production') {
     app.enable('view cache');
 }
 
+console.log("MongoDB URL: "+settings.database.uri);
+
 // Session
 var sessionStore = new MongoStore({
     url: settings.database.uri,
