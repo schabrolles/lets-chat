@@ -163,7 +163,8 @@ var pipeline = [
 
     function openShift(context) {
         console.log("OPENSHIFT")
-        if (process.env.OPENSHIFT_APP_NAME) {
+        //if (process.env.OPENSHIFT_APP_NAME) {
+        if (process.env.OPENSHIFT_BUILD_NAMESPACE) {
             context.result.http.host = process.env.OPENSHIFT_NODEJS_IP;
             context.result.http.port = process.env.OPENSHIFT_NODEJS_PORT;
             // context.result.database.uri = process.env.OPENSHIFT_MONGODB_DB_URL +
