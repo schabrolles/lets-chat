@@ -162,6 +162,7 @@ var pipeline = [
     },
 
     function openShift(context) {
+        console.log("OPENSHIFT")
         if (process.env.OPENSHIFT_APP_NAME) {
             context.result.http.host = process.env.OPENSHIFT_NODEJS_IP;
             context.result.http.port = process.env.OPENSHIFT_NODEJS_PORT;
@@ -170,6 +171,7 @@ var pipeline = [
             
             // context.result.database.uri = "mongodb://"+process.env.username+":"+process.env.password+"@"+process.env.MONGODB_PORT_27017_TCP_ADDR+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env.database_name;
             context.result.database.uri = "mongodb://admin:"+process.env.database-admin-password+"@"+process.env.MONGODB_PORT_27017_TCP_ADDR+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env.database_name+"?authSource=admin";
+            console.log(context.result.database.uri) 
         }
     }
 ];

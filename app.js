@@ -55,6 +55,7 @@ if (settings.env === 'production') {
 }
 
 console.log("MongoDB URL: "+settings.database.uri);
+console.log(process.env);
 
 // Session
 var sessionStore = new MongoStore({
