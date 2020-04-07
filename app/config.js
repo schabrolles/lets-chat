@@ -176,8 +176,8 @@ var pipeline = [
             context.result.http.host = "0.0.0.0";
             context.result.http.port = 8080;
             if(process.env.parameters){
-
-              context.result.database.uri = "mongodb://"+process.env.parameters['MONGODB_USER']+":"+process.env.parameters['MONGODB_PASSWORD']+"@"+process.env.parameters['DATABASE_SERVICE_NAME']+"/"+process.env.parameters['MONGODB_DATABASE'];
+              json=JSON.parse(process.env.parameters);
+              context.result.database.uri = "mongodb://"+json['MONGODB_USER']+":"+json['MONGODB_PASSWORD']+"@"+json['DATABASE_SERVICE_NAME']+"/"+json['MONGODB_DATABASE'];
             }else{
               context.result.database.uri = "mongodb://"+process.env.username+":"+process.env.password+"@"+process.env.MONGODB_SERVICE_HOST+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env.database_name;
 
