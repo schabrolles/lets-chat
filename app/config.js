@@ -165,7 +165,7 @@ var pipeline = [
         if (process.env.OPENSHIFT_BUILD_NAME || process.env.OPENSHIFT_APP_NAME) {
             context.result.http.host = "0.0.0.0";
             context.result.http.port = 8080;
-              context.result.database.uri = "mongodb://"+process.env['database-user']+":"+process.env['database-password']+"@"+process.env.MONGODB_SERVICE_HOST+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env['database-name'];
+            context.result.database.uri = "mongodb://"+process.env['database-user']+":"+process.env['database-password']+"@"+process.env.MONGODB_SERVICE_HOST+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env['database-name'];
         }
     }
 ];
