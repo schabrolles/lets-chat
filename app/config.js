@@ -162,35 +162,10 @@ var pipeline = [
     },
 
     function openShift(context) {
-        if (process.env.OPENSHIFT_APP_NAME) {
-            context.result.http.host = process.env.OPENSHIFT_NODEJS_IP;
-            context.result.http.port = process.env.OPENSHIFT_NODEJS_PORT;
-            context.result.database.uri = process.env.OPENSHIFT_MONGODB_DB_URL +
-                                          process.env.OPENSHIFT_APP_NAME;
-
-        }
-    },
-
-    function openShift311(context) {
         if (process.env.OPENSHIFT_BUILD_NAME || process.env.OPENSHIFT_APP_NAME) {
             context.result.http.host = "0.0.0.0";
             context.result.http.port = 8080;
-
-            /*
-            if(process.env.parameters){
-              var json=JSON.parse(process.env.parameters);
-              context.result.database.uri = "mongodb://"+json['MONGODB_USER']+":"+json['MONGODB_PASSWORD']+"@"+json['DATABASE_SERVICE_NAME']+"/"+json['MONGODB_DATABASE'];
-            }else{
-
-            database-admin-password: RDJNTnZFMk5RUEdrUTh5VA==
-database-name: c2FtcGxlZGI=
-database-password: RVlhSE9ObTh0a3U2RTRudA==
-database-user: dXNlckFJWQ==
-              */
               context.result.database.uri = "mongodb://"+process.env['database-user']+":"+process.env['database-password']+"@"+process.env.MONGODB_SERVICE_HOST+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env['database-name'];
-
-            //}
-
         }
     }
 ];
