@@ -6,6 +6,8 @@
 
 process.title = 'letschat';
 
+console.log(process.env);
+
 require('colors');
 
 var _ = require('lodash'),
