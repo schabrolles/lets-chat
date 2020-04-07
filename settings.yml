@@ -29,8 +29,10 @@ xmpp:
   domain: example.com
 
 database:
-  uri: 'mongodb://admin:4LkFxcGSKf7adt6M@mongodb/letschats?authSource=admin'
+  #uri: 'mongodb://admin:4LkFxcGSKf7adt6M@mongodb/letschats?authSource=admin'
   #uri: mongodb://admin:{database-admin-password}@${MONGODB_SERVICE_HOST}:${MONGODB_SERVICE_PORT}/${database-name}?authSource=admin
+  uri: "mongodb://admin:"+process.env.database-admin-password+"@"+process.env.MONGODB_SERVICE_HOST+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env.database_name+"?authSource=admin"
+  
 
 secrets:
   cookie: secretsauce
