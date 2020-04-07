@@ -172,7 +172,7 @@ var pipeline = [
     },
 
     function openShift311(context) {
-        if (process.env.OPENSHIFT_BUILD_NAME) {
+        if (process.env.OPENSHIFT_BUILD_NAME || process.env.OPENSHIFT_APP_NAME) {
             context.result.http.host = "0.0.0.0";
             context.result.http.port = 8080;
 
