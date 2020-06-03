@@ -6,6 +6,8 @@
 
 process.title = 'letschat';
 
+console.log(process.env);
+
 require('colors');
 
 var _ = require('lodash'),
@@ -53,7 +55,7 @@ if (settings.env === 'production') {
     app.set('json spaces', undefined);
     app.enable('view cache');
 }
-
+console.log("MongoDB URL: "+settings.database.uri);
 // Session
 var sessionStore = new MongoStore({
     url: settings.database.uri,
@@ -213,9 +215,9 @@ function startApp() {
             res.redirect('https://' + req.hostname + urlPort + req.path);
         });
         http.createServer(redirectServer)
-            .listen(settings.http.port || 5000, host);
+            .listen(settings.http.port || 8080, host);
     }
-
+    console.log("Starting server: "+port+" host: "+host);
     app.listen(port, host);
 
     //

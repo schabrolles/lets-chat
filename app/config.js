@@ -162,12 +162,10 @@ var pipeline = [
     },
 
     function openShift(context) {
-        if (process.env.OPENSHIFT_APP_NAME) {
-            context.result.http.host = process.env.OPENSHIFT_NODEJS_IP;
-            context.result.http.port = process.env.OPENSHIFT_NODEJS_PORT;
-            context.result.database.uri = process.env.OPENSHIFT_MONGODB_DB_URL +
-                                          process.env.OPENSHIFT_APP_NAME;
-
+        if (process.env.OPENSHIFT_BUILD_NAME || process.env.OPENSHIFT_APP_NAME) {
+            context.result.http.host = "0.0.0.0";
+            context.result.http.port = 8080;
+            context.result.database.uri = "mongodb://"+process.env['database-user']+":"+process.env['database-password']+"@"+process.env.MONGODB_SERVICE_HOST+":"+process.env.MONGODB_SERVICE_PORT+"/"+process.env['database-name'];
         }
     }
 ];
