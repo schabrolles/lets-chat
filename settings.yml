@@ -8,8 +8,8 @@ env: production # development / production
 
 http:
   enable: true
-  host: 'localhost'
-  port: 5000
+  host: '0.0.0.0'
+  port: 8080
 
 https:
   enable: false
@@ -29,7 +29,7 @@ xmpp:
   domain: example.com
 
 database:
-  uri: mongodb://localhost/letschat
+  uri: mongodb://localhost:27018/localdb
 
 secrets:
   cookie: secretsauce
